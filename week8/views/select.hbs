@@ -1,0 +1,51 @@
+<!-- 직원 페이지 -->
+<h1>{{ title }}</h1>
+
+<table>
+    <tr>    <!-- 카테고리 -->
+        <td>Fname</td>  <!-- 열 -->
+        <td>Minit</td>
+        <td>Lname</td>
+        <td>Ssn</td>
+        <td>Bdate</td>
+        <td>Address</td>
+        <td>Sex</td>
+        <td>Salary</td>
+        <td>Super_ssn</td>
+        <td>Dno</td>
+    </tr>
+    {{#each employee}}
+        <tr>
+            <td>{{Fname}}</td>
+            <td>{{Minit}}</td>
+            <td>{{Lname}}</td>
+            <td>{{Ssn}}</td>
+            <td>{{Bdate}}</td>
+            <td>{{Address}}</td>
+            <td>{{Sex}}</td>
+            <td>{{Salary}}</td>
+            <td>{{Super_ssn}}</td>
+            <td>{{Dno}}</td>
+        </tr>
+    {{/each}}
+</table>
+
+<!-- 부서 페이지 -->
+<h1>{{ title2 }}</h1>
+
+<table>
+    <tr>    <!-- 카테고리 -->
+        <td>Dname</td>
+        <td>Dnumber</td>
+        <td>Mgr_ssn</td>
+        <td>Mgr_start_date</td>
+    </tr>
+    {{#each department}}
+    <tr>
+        <td>{{Dname}}</td>  <!-- 열 -->
+        <td>{{Dnumber}}</td>
+        <td>{{Mgr_ssn}}</td>
+        <td>{{Mgr_start_date}}</td>
+    </tr>
+    {{/each}}
+</table>

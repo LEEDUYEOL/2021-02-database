@@ -94,8 +94,7 @@ module.exports = router;
     > npm init
     > npm install
 2. /routes/home.js에서 home 작성
-<code>
-<pre>
+```javascript
 router.get('/', (req,res) => {
     res.render('home'); //home.hbs
 });
@@ -132,8 +131,7 @@ router.post('/', (req,res) => { //home.hbs에서 post로 보냄
 
     res.redirect('/');  //입력하고 홈화면으로 돌아감(페이지 이동 x)
 })
-</code>
-</pre>
+```
 
 3. 마찬가지 방법으로 /routes/select.js, /routes/update.js 작성
 4. /database/sql.js에서 insert, update, select 기능 구현
@@ -332,6 +330,8 @@ Dname|Dnumber|삭제|
 컴퓨터공학과|1|[삭제]|
 
 <br><br><br><br><br>
+
+## 11주차 실습
 
 ## <span style="color:red">테이블 작성법</span>
 

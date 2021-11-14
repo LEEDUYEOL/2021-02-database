@@ -78,7 +78,7 @@ module.exports = router;
 </ul>
 ```
 
-## <span style="color:red">사용자 목록</span>
+### <span style="color:red">사용자 목록</span>
 
 학번|이름|학년|전공|입학년도|이메일
 ---|---|---|---|---|---|
@@ -212,7 +212,7 @@ export const updateSql = {
 
 6. 마찬가지 방법으로 select.hbs, updateEmploye.hbs, updateDepartment.hbs 작성\
 7. update 페이지에서 salary 등 수정 가능
-## <span style="color:red">직원 테이블 갱신</span>
+### <span style="color:red">직원 테이블 갱신</span>
 Fname|Minit|Lname|Ssn|Bdate|Address|Sex|Salary|Super_ssn|Dno|수정
 ---|---|---|---|---|---|---|---|---|---|---|
 두열|가|이|12151595|Tue Mar 12 1996 00:00:00 GMT+0900 (대한민국표준시)|목동|남|[10000]|1|1234|[수정]

@@ -1,0 +1,73 @@
+<!--
+ Copyright 2021 kms
+ 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ 
+     http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<!-- delete 화면 -->
+<h1>{{ title }}</h1>
+<table>
+  <tr>
+    <td>Dname</td>
+    <td>Dnumber</td>
+  </tr>
+  {{#each department}}
+    <form method="post">
+      <tr>
+        <td>{{Dname}}</td>
+        <td>{{Dnumber}}</td>
+        <td style="border: none; margin-left: 10px;">
+          <button 
+            style="margin-left: 10px;"
+            type="submit" 
+            name="delBtn"
+            value={{Dnumber}} 
+            formaction="/delete"> <!-- project와 구분하기 위해 name 다르게 -->
+          삭제
+          </button>
+        </td>
+      </tr>    
+    </form>
+  {{/each}}
+</table>
+
+<!-- 프로젝트 화면 추가 -->
+<h1>{{ title2 }}</h1>
+<table>
+  <tr>
+    <td>Pname</td>
+    <td>Pnumber</td>
+    <td>Plocation</td>
+    <td>Dnum</td>
+  </tr>
+  {{#each project}}
+    <form method="post">
+      <tr>
+        <td>{{Pname}}</td>
+        <td>{{Pnumber}}</td>
+        <td>{{Plocation}}</td>
+        <td>{{Dnum}}</td>
+        <td style="border: none; margin-left: 10px;">
+          <button 
+            style="margin-left: 10px;"
+            type="submit" 
+            name="delBtn2"  
+            value={{Pnumber}} 
+            formaction="/delete"> <!-- department와 구분 위해 name 변경 -->
+          삭제
+          </button>
+        </td>
+      </tr>    
+    </form>
+  {{/each}}
+</table>

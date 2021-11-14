@@ -78,6 +78,7 @@ module.exports = router;
 </ul>
 ```
 
+7. STUDENT 테이블에서 학과, 학번, 이름 등 정보 저장
 ### <span style="color:red">사용자 목록</span>
 
 학번|이름|학년|전공|입학년도|이메일
@@ -86,7 +87,15 @@ module.exports = router;
 12171975|김윤서|3|전자공학과|Mon Mar 02 2019 00:00:00 GMT+0900 (대한민국 표준시)|yunkim43@gmail.com
 12201465|이하나|2|정치외교학과|Wed Mar 02 2020 00:00:00 GMT+0900 (대한민국표준시)|oneone11@inha.edu
 
+
+
+
+
 <br><br>
+
+
+
+
 
 ## 8주차 실습 실행 방법
 1. week8 폴더 생성 후 package.json 생성
@@ -210,11 +219,27 @@ export const updateSql = {
 
 6. 마찬가지 방법으로 select.hbs, updateEmploye.hbs, updateDepartment.hbs 작성\
 7. update 페이지에서 salary 등 수정 가능
+- EMPLOYEE 테이블에서 직원 정보 저장
+- DEPARTMENT 테이블에서 부서 정보 저장
+
 ### <span style="color:red">직원 테이블 갱신</span>
 Fname|Minit|Lname|Ssn|Bdate|Address|Sex|Salary|Super_ssn|Dno|수정
 ---|---|---|---|---|---|---|---|---|---|---|
 두열|가|이|12151595|Tue Mar 12 1996 00:00:00 GMT+0900 (대한민국표준시)|목동|남|[10000]|1|1234|[수정]
 혜자|L|추|123456789|Thu May 22 1980 00:00:00 GMT+0900 (대한민국표준시)|순천|여|[6000]| |5|[수정]
+
+### <span style="color:red">부서 테이블 갱신</span>
+Dname|Dnumber|Mgr_ssn|Mgr_start_date|수정
+---|---|---|---|---|
+재정부|0|123456789|Tue May 5 1977 00:00:00 GMT+0900 (대한민국표준시)|[수정]
+식품개발부|22|12151595|Thu May 06 1980 00:00:00 GMT+0900 (대한민국표준시)|[수정]
+
+
+
+<br><br>
+
+
+
 
 ## 10주차 실습 실행 방법
 1. Github에서 8주차 실습 자료 clone 후 8주차 자료 사용 (기존 작성 사용해도 무방)
@@ -321,6 +346,16 @@ router.get('/', async function(req, res) {
 </div>
 ```
 7. 관리자 계정으로 로그인 시 삭제 가능
+- USER 테이블에서 로그인 정보 저장
+- DEPARTMENT 테이블에서 부서 정보 저장
+- PROJECT 테이블에서 프로젝트 정보 저장
+
+### <span style="color:red">user</span>
+Id|Password|Role|
+---|---|---|
+admin|admin1234|[삭제]|
+test|test1234|[삭제]|
+
 ### <span style="color:red">삭제 기능</span>
 Dname|Dnumber|삭제|
 ---|---|---|
@@ -328,6 +363,16 @@ Dname|Dnumber|삭제|
 전자공학과|3|[삭제]|
 정보통신공학과|0|[삭제]|
 컴퓨터공학과|1|[삭제]|
+
+### <span style="color:red">삭제 기능2</span>
+Pname|Pnumber|Plocation|Dnum|삭제|
+---|---|---|---|---|
+ProductX|1|Bellaire|5|[삭제]|
+ProductY|2|Sugarland|5|[삭제]|
+ProductZ|3|Houston|5|[삭제]|
+Computerization|10|Stanfford|4|[삭제]|
+Reorganization|20|Houston|1|[삭제]|
+Newbenefits|30|Stanfford|4|[삭제]|
 
 <br><br><br><br><br>
 

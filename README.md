@@ -218,15 +218,120 @@ Fname|Minit|Lname|Ssn|Bdate|Address|Sex|Salary|Super_ssn|Dno|수정
 두열|가|이|12151595|Tue Mar 12 1996 00:00:00 GMT+0900 (대한민국표준시)|목동|남|[10000]|1|1234|[수정]
 혜자|L|추|123456789|Thu May 22 1980 00:00:00 GMT+0900 (대한민국표준시)|순천|여|[6000]| |5|[수정]
 
+## 10주차 실습 실행 방법
+1. Github에서 8주차 실습 자료 clone 후 8주차 자료 사용 (기존 작성 사용해도 무방)
+    > git clone https://gitjub.com/LEEDUYEOL/2021-02-database.git
+2. /src/index.js에서 프로젝트 소스 수정
+<code>
+<pre>
+import loginRouter from "../routes/login";  //홈 기능
+import selectRouter from "../routes/select";    //조회 기능
+import deleteRouter from "../routes/delete";    //삭제 기능
+</code>
+</pre>
 
+3. /database/sql.js에서 user 테이블을 읽도록 수정
+<code>
+<pre>
+export const selectSql = {
+  getUsers : async () => {
+    const [rows] = await promisePool.query(`select * from user`); //user 불러옴
+    console.log(rows)
+    return rows
+  },
+</code>
+</pre>
 
+4. /routes/login.js 에서 로그인 정보에 따른 동작을 수행하도록 추가
+<code>
+<pre>
+router.post('/', async (req, res) => {
+    const vars = req.body;
+    const users = await selectSql.getUsers();   //유저 정보 가져옴
+    let whoAmI = '' //누가 로그인 했는지 저장
+    let checkLogin = false; //로그인 성공 여부
 
+    //for(let i =0; i < users.length; i++){
+    //    if (vars.id === user[i].id && vars.password === user[i].password){
+    //        ;
+    //    }
+    //}
+    
+    //map 함수로 callback 함수 받아 기능 수행
+    //for문 없이 자동 비교
+    users.map((user) => {
+        if (vars.id === user.Id && vars.password == user.Password){
+            checkLogin = true;
+            if(vars.id === 'admin'){    //관리자 계정
+                whoAmI = 'admin';
+            } else {
+                whoAmI = 'users';   //일반 계정
+            }
+        }
+    })
 
+    console.log('whoAmI:',whoAmI);  //출력으로 확인
 
+    if(checkLogin && whoAmI === 'admin'){   //관리자 계정이면 delete
+        res.redirect('/delete');
+    } else if (checkLogin && whoAmI === 'users'){   //일반 계정이면 select
+        res.redirect('/select');
+    } else {
+        console.log('login failed!');   //로그인 실패
+        res.send("<script>alert('로그인에 실패했습니다.'); location.href='/';</script>");
+    }
 
+})
+</code>
+</pre>
 
+5. /routes/select.js와 /routes/delete.js도 table에 맞게 수정
+<code>
+<pre>
+router.get('/', async function(req, res) {
 
+    const department = await selectSql.getDepartment(); 
+    const project = await selectSql.getProject();   //임의의 테이블 추가
 
+    //데이터 넘겨받음
+    res.render('select', {
+        title: 'IT 공대',
+        title2: '프로젝트', //프로젝트 추가
+        department,
+        project
+    });
+    
+    
+});
+</code>
+</pre>
+
+6. views/login.js에서 로그인할 수 있도록 수정, 이후 layout.hbs, select.hbs, delete.hbs도 table에 맞게 수정 
+```hbs
+</style>
+<div class="frame">
+    <h1>로그인</h1>
+    <form id="deparment" method="post" action='/'>
+        <div class="id">
+            <input id="id" name="id" type="text" required placeholder="아이디">
+        </div>
+        <div class="pwd">
+            <input id="passwd" name='password' type="password" required  placeholder="비밀번호">
+        </div>
+        <button class='btn' type="submit">로그인</button>
+    </form>
+</div>
+```
+7. 관리자 계정으로 로그인 시 삭제 가능
+### <span style="color:red">삭제 기능</span>
+Dname|Dnumber|삭제|
+---|---|---|
+전기공학과|2|[삭제]|
+전자공학과|3|[삭제]|
+정보통신공학과|0|[삭제]|
+컴퓨터공학과|1|[삭제]|
+
+<br><br><br><br><br>
 
 ## <span style="color:red">테이블 작성법</span>
 

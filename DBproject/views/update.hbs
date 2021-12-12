@@ -1,0 +1,67 @@
+<h1>{{ title }}</h1>
+
+<table>
+    <tr>
+        <td>Airport_code</td>
+        <td>Name</td>
+        <td>City</td>
+        <td>State</td>
+    </tr>
+    {{#each airport_res}}  <!-- 데이터 있을 때마다 반복 -->
+        <form method="post">
+            <tr>
+                <!-- input tag를 사용하여 입력 가능한 형태로 변경함(다른 방법도 검색하면 있음) -->
+                <td><input type="text" name="airport_code" placeholder={{Airport_code}}></td> <!-- placeholder에 남김 -->
+                <td><input type="text" name="name" placeholder={{Name}}></td>
+                <td><input type="text" name="city" placeholder={{City}}></td>
+                <td><input type="text" name="state" placeholder={{State}}></td>
+                <!-- formaction 속성을 활용하여 입력한 값을 넘겨줌) -->
+                <td><input type="submit" value="수정" formaction="/update"></td> <!-- post에서 처리 -->
+            </tr>
+        </form>
+    {{/each}}
+</table>
+
+<h1>{{ title2 }}</h1>
+
+<table>
+    <tr>
+        <td>Airplane_id</td>
+        <td>Total_number_of_seats</td>
+        <td>Airplane_type</td>
+    </tr>
+    {{#each airplane_res}}  <!-- 데이터 있을 때마다 반복 -->
+        <form method="post">
+            <tr>
+                <!-- input tag를 사용하여 입력 가능한 형태로 변경함(다른 방법도 검색하면 있음) -->
+                <td><input type="text" name="airplane_id" placeholder={{Airplane_id}}></td> <!-- placeholder에 남김 -->
+                <td><input type="text" name="total_number_of_seats" placeholder={{Total_number_of_seats}}></td>
+                <td><input type="text" name="airplane_type" placeholder={{Airplane_type}}></td>
+                <!-- formaction 속성을 활용하여 입력한 값을 넘겨줌) -->
+                <td><input type="submit" value="수정" formaction="/update"></td> <!-- post에서 처리 -->
+            </tr>
+        </form>
+    {{/each}}
+</table>
+
+<h1>{{ title3 }}</h1>
+
+<table>
+    <tr>
+        <td>Flight_number</td>
+        <td>Airline</td>
+        <td>Weekdays</td>
+    </tr>
+    {{#each flight_res}}  <!-- 데이터 있을 때마다 반복 -->
+        <form method="post">
+            <tr>
+                <!-- input tag를 사용하여 입력 가능한 형태로 변경함(다른 방법도 검색하면 있음) -->
+                <td><input type="text" name="flight_number" placeholder={{Flight_number}}></td> <!-- placeholder에 남김 -->
+                <td><input type="text" name="airline" placeholder={{Airline}}></td>
+                <td><input type="text" name="weekdays" placeholder={{Weekdays}}></td>
+                <!-- formaction 속성을 활용하여 입력한 값을 넘겨줌) -->
+                <td><input type="submit" value="수정" formaction="/update"></td> <!-- post에서 처리 -->
+            </tr>
+        </form>
+    {{/each}}
+</table>

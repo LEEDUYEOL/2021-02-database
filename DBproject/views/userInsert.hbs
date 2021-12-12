@@ -1,0 +1,32 @@
+<h1>Airport 데이터 삽입</h1>
+
+<form name="reservation" method="post" action='/userInsert'>
+    <!-- 정보들 입력 -->
+    <div>
+        <label for="flight_number">Flight_number</label>
+        <input id="flight_number" name="flight_number" type="text" required placeholder="Flight_number">
+    </div>
+    <div>
+        <label for="leg_number">Leg_number</label>
+        <input id="leg_number" name="leg_number" type="text" required placeholder="Leg_number">
+    </div>
+    <div>
+        <label for="date">Date</label>
+        <input id="date" name="date" type="date" required placeholder="Date">
+    </div>
+    <div>
+        <label for="seat_number">Seat_number</label>
+        <input id="seat_number" name="seat_number" type="number" required placeholder="Seat_numberd">
+    </div>
+    <div>
+        <label for="customer_name">Customer_name</label>
+        <input id="customer_name" name="customer_name" type="text" required placeholder="Customer_name">
+    </div>
+    <div>
+        <label for="customer_phone">Customer_phone</label>
+        <input id="customer_phone" name="customer_phone" type="text" required placeholder="Customer_phone">
+    </div>
+    <div>
+        <input type="submit" value="삽입">
+    </div>
+</form>

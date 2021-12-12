@@ -1,0 +1,34 @@
+<!-- delete 화면 -->
+<h1>{{ title }}</h1>
+<table>
+  <tr>
+    <td>Flight_number</td>
+    <td>Leg_number</td>
+    <td>Date</td>
+    <td>Seat_number</td>
+    <td>Customer_name</td>
+    <td>Customer_phone</td>
+  </tr>
+  {{#each reservation}}
+    <form method="post">
+      <tr>
+        <td>{{Flight_number}}</td>
+        <td>{{Leg_number}}</td>
+        <td>{{Date}}</td>
+        <td>{{Seat_number}}</td>
+        <td>{{Customer_name}}</td>
+        <td>{{Customer_phone}}</td>
+        <td style="border: none; margin-left: 10px;">
+          <button 
+            style="margin-left: 10px;"
+            type="submit" 
+            name="delBtn"
+            value={{Seat_number}} 
+            formaction="/userDelete"> <!-- project와 구분하기 위해 name 다르게 -->
+          삭제
+          </button>
+        </td>
+      </tr>    
+    </form>
+  {{/each}}
+</table>
